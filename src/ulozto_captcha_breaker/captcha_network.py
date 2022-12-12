@@ -161,7 +161,8 @@ class CaptchaNetwork:
                         callbacks=[self._check_callback, self._tb_callback])
 
     def save_model(self, out_path):
-        tf.saved_model.save(self._model, out_path)
+        #tf.saved_model.save(self._model, out_path)
+        tf.keras.models.save_model(self._model, out_path) # [ST221212] by reading error message.
 
     def predict(self, inputs, args):
         """
