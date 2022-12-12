@@ -30,6 +30,7 @@ def main(args):
     # predict and get the output
     output = interpreter.get_tensor(output_details[0]['index'])
 
+    print("output from 'interpreter.get_tensor': ", output)
     output_label = np.argmax(output, axis=2)[0]
 
     # now get labels
