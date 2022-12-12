@@ -116,7 +116,7 @@ class CaptchaNetwork:
         self._tb_callback.on_train_end = lambda *_: None
         checkpoint_path = os.path.join(args.logdir, 'cp-{epoch:02d}.h5')
         self._check_callback = tf_keras.callbacks.ModelCheckpoint(
-            checkpoint_path, save_weights_only=True)
+            checkpoint_path, save_weights_only=False)
 
         if args.save_model_path:
             self.save_model(args.save_model_path)
