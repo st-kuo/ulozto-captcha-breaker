@@ -11,10 +11,19 @@ from PIL import Image
 
 def main(args):
     image = np.asarray(Image.open(args.image_path))
+    '''
     image_preprocess_pipeline = ImagePreprocessorPipeline([
         ConvertToGrayscalePreprocessor(),
         NormalizeImagePreprocessor()
     ])
+    '''
+    # [ST221212] Copy from train.py.
+    image_preprocess_pipeline = ImagePreprocessorPipeline([
+        ConvertToGrayscalePreprocessor(),
+        ResizePreprocessor(input_shape[0], input_shape[1]),
+        NormalizeImagePreprocessor()
+    ])
+    
     label_decoder = StringEncoder(available_chars=args.available_chars)
 
     # create interpreter
