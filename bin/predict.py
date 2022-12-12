@@ -17,12 +17,15 @@ def main(args):
         NormalizeImagePreprocessor()
     ])
     '''
+    # ------------------------------
     # [ST221212] Copy from train.py.
+    input_shape = (image.shape[0], image.shape[1])
     image_preprocess_pipeline = ImagePreprocessorPipeline([
         ConvertToGrayscalePreprocessor(),
         ResizePreprocessor(input_shape[0], input_shape[1]),
         NormalizeImagePreprocessor()
     ])
+    # ------------------------------
     
     label_decoder = StringEncoder(available_chars=args.available_chars)
 
