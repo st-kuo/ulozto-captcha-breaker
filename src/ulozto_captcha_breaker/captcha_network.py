@@ -174,6 +174,8 @@ class CaptchaNetwork:
         inputs = self._image_preprocess_pipeline(inputs)
 
         y_pred = self._model.predict(inputs, args.batch_size)
+        print("y_pred: ", y_pred) # [ST221212] for debug
+        
         if len(y_pred.shape) <= 2:
             y_pred = np.expand_dims(y_pred, axis=1)
         y_pred = np.argmax(y_pred, axis=2)
